@@ -1,0 +1,117 @@
+﻿@model MJPTask01.Models.Membro
+
+@{
+    ViewBag.Title = "Editar cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar cadastro</h2>
+
+<form data-role="validator" action="/Membro/Editar/@Model.id" method="post" class="custom-validation" novalidate="" data-interactive-check="true">
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @*<div hidden>@Model.id</div>*@
+        <hr />
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-2"> Nome Completo</label>
+            <div class="cell-sm-6">
+                <input type="text" data-validate="required"
+                       class="metro-input" id="NomeCompleto" name="NomeCompleto" data-role="input" value="@Model.NomeCompleto">
+                <div class="invalid_feedback">
+                    Por gentileza preencher com seu nome completo!
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-2"> Data nascimento</label>
+            <div class="cell-sm-2">
+                <input type="datetime" data-validate="date"
+                       class="metro-input" id="DataNacimento" name="DataNacimento" value="@Model.DataNacimento">
+                <div class="invalid_feedback">
+                    Por gentileza preencher com a data de nascimento!
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-2"> Data Batismo</label>
+            <div class="cell-sm-2">
+                <input type="datetime"
+                       class="metro-input" id="DataBatismo" name="DataBatismo" value="@Model.DataBatismo">
+            </div>
+        </div>
+        <hr />
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-2"> E-mail pessoal</label>
+            <div class="cell-sm-4">
+                <input type="email" data-validate="required email"
+                       class="metro-input" id="ContatoPessoal_Email" name="ContatoPessoal.Email" value="@Model.ContatoPessoal.Email"
+                       data-role="input" data-prepend="<span class='mif-user'></span>">
+                <div class="invalid_feedback">
+                    Por gentileza preencher com um e-mail válido!
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-2"> Telefone pessoal</label>
+            <div class="cell-sm-4">
+                <input type="text"
+                       class="metro-input" id="ContatoPessoal_NumeroCelular" name="ContatoPessoal.NumeroCelular" value="@Model.ContatoPessoal.NumeroCelular"
+                       data-role="input" data-prepend="<span class='mif-phone'></span>">
+            </div>
+        </div>
+        <hr />
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-1"> Cep</label>
+            <div class="cell-sm-2">
+                <input type="text"
+                       class="metro-input" id="Endereco_Cep" name="Endereco.Cep" value="@Model.Endereco.Cep"
+                       data-role="input">
+            </div>
+        </div>
+
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-1"> Rua</label>
+            <div class="cell-sm-8">
+                <input type="text"
+                       class="metro-input" id="Endereco_Rua" name="Endereco.Rua" value="@Model.Endereco.Rua"
+                       data-role="input">
+            </div>
+        </div>
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-1"> Bairro</label>
+            <div class="cell-sm-4">
+                <input type="text"
+                       class="metro-input" id="Endereco_Bairro" name="Endereco.Bairro" value="@Model.Endereco.Bairro"
+                       data-role="input">
+            </div>
+        </div>
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-1"> Cidade</label>
+            <div class="cell-sm-6">
+                <input type="text"
+                       class="metro-input" id="Endereco_Cidade" name="Endereco.Cidade" value="@Model.Endereco.Cidade"
+                       data-role="input">
+            </div>
+        </div>
+        <div class="row mb-2 form-group">
+            <label class="cell-sm-1"> Estado</label>
+            <div class="cell-sm-2">
+                <input type="text"
+                       class="metro-input" id="Endereco_Estado" name="Endereco.Estado" value="@Model.Endereco.Estado"
+                       data-role="input">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="button primary large" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="info-button bg-cyan fg-white">
+    <a href="/Membro" class="button">Voltar para lista de membros</a>
+</div>

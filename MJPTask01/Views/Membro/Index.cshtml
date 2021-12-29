@@ -1,0 +1,49 @@
+﻿@using MJPTask01.Models
+@model List<Membro>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<h3>Lista de membros</h3>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Aniversário</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var membro in Model)
+        {
+            <tr>
+                <td>@membro.NomeCompleto</td>
+                <td>@membro.DataNacimento</td>
+                <td>@membro.ContatoPessoal.NumeroCelular</td>
+                <td>@membro.ContatoPessoal.Email</td>
+                <td>@membro.Endereco.Cidade</td>
+                <td>@membro.Endereco.Estado</td>
+                <td>
+                    <div data-role="buttongroup">
+                        <a class="button primary square" href="/Membro/Editar/@membro.id" role="button">
+                            <span class="mif-pencil icon"></span>
+                        </a>
+                        <a class="button alert square" type="submit" href="/Membro/Excluir/@membro.id" role="button">
+                            <span class="mif-cross icon"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
